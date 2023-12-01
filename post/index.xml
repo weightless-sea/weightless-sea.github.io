@@ -1,5 +1,243 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on 里表世界</title><link>https://weightless-sea.github.io/post/</link><description>Recent content in Posts on 里表世界</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>栖暮</copyright><lastBuildDate>Fri, 01 Dec 2023 14:23:34 +0800</lastBuildDate><atom:link href="https://weightless-sea.github.io/post/index.xml" rel="self" type="application/rss+xml"/><item><title>mklink</title><link>https://weightless-sea.github.io/p/mklink/</link><pubDate>Fri, 01 Dec 2023 14:23:34 +0800</pubDate><guid>https://weightless-sea.github.io/p/mklink/</guid><description>&lt;p>示例：
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on 里表世界</title><link>https://weightless-sea.github.io/post/</link><description>Recent content in Posts on 里表世界</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>栖暮·藏着并不等于遗忘</copyright><lastBuildDate>Fri, 01 Dec 2023 22:32:25 +0800</lastBuildDate><atom:link href="https://weightless-sea.github.io/post/index.xml" rel="self" type="application/rss+xml"/><item><title>博客搭建</title><link>https://weightless-sea.github.io/p/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</link><pubDate>Fri, 01 Dec 2023 22:32:25 +0800</pubDate><guid>https://weightless-sea.github.io/p/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</guid><description>&lt;p>在经历了各种磕磕碰碰后，这个博客总算是搭建完成了&lt;br>
+接下来就写写此站从新建文件夹到诞生的主要过程吧&lt;/p>
+&lt;h2 id="搭建准备">搭建准备&lt;/h2>
+&lt;p>安装 &lt;code>git&lt;/code> &lt;code>ssh&lt;/code>&lt;/p>
+&lt;h2 id="搭建方案">搭建方案&lt;/h2>
+&lt;ol>
+&lt;li>使用scoop安装Hugo-extended&lt;/li>
+&lt;li>Hugo创建博客源文件&lt;/li>
+&lt;li>为博客安装stack主题&lt;/li>
+&lt;li>在 GitHub 上创建两个新仓库，一个存放博客源文件，另一个命名为 &lt;code>username.github.io&lt;/code>，用于存放 Hugo 生成的静态站点。&lt;/li>
+&lt;li>博客源文件中配置GitHub Actions以自动构建 Hugo 网站并将静态文件推送到你的 &lt;code>username.github.io&lt;/code> 仓库，github pages自动部署博客。&lt;/li>
+&lt;/ol>
+&lt;h2 id="使用scoop安装hugo-extended">使用scoop安装Hugo-extended&lt;/h2>
+&lt;h3 id="scoop的安装">scoop的安装&lt;/h3>
+&lt;p>Powershell或命令行中输入：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">Set-ExecutionPolicy RemoteSigned -Scope CurrentUser # Optional: Needed to run a remote script the first time
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">irm get.scoop.sh | iex
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>完成scoop的安装&lt;/p>
+&lt;h3 id="安装hugo的extend版本">安装Hugo的extend版本&lt;/h3>
+&lt;p>命令行输入：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">scoop install hugo-extended
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>完成Hugo-extended的安装&lt;/p>
+&lt;h2 id="创建博客站点">创建博客站点&lt;/h2>
+&lt;p>命令行界面输入:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">hugo new site myblog
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>这样就创建一个新的 Hugo 博客，相关的文件都在&lt;code>myblog&lt;/code>文件夹中 。&lt;br>
+输入&lt;code>hugo server&lt;/code>实现hugo博客的预览，运行成功后，可以在 &lt;code>http://localhost:1313/&lt;/code> 中预览网站（目前博客还什么都没有，打开就是一片空白）&lt;br>
+命令行中输入&lt;code>hugo&lt;/code>生成网页&lt;/p>
+&lt;h2 id="为博客添加stack主题">为博客添加stack主题&lt;/h2>
+&lt;h3 id="使用-git-submodule-add将主题作为一个子模块添加到仓库中">使用 &lt;code>git submodule add&lt;/code>将主题作为一个子模块添加到仓库中&lt;/h3>
+&lt;ol>
+&lt;li>进入 Hugo 博客根目录&lt;/li>
+&lt;li>初始化 Git 仓库： &lt;code>git init&lt;/code>&lt;/li>
+&lt;li>添加 Stack 主题作为子模块&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">git submodule add https://github.com/CaiJimmy/hugo-theme-stack/ themes/hugo-theme-stack
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="初始化和更新子模块">初始化和更新子模块&lt;/h3>
+&lt;p>当你首次克隆一个包含子模块的仓库时，需要初始化和更新子模块。这可以通过以下命令完成：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">git submodule init
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git submodule update
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>这两个命令会初始化本地配置文件，并从那个 URL 拉取所有数据并检出你在主项目中所指定的特定提交。&lt;/p>
+&lt;h3 id="修改主题配置">修改主题配置&lt;/h3>
+&lt;ol>
+&lt;li>删除博客根目录下的&lt;code>hugo.toml&lt;/code>初始配置文件&lt;/li>
+&lt;li>将&lt;code>\themes\hugo-theme-stack\exampleSite&lt;/code>中的&lt;code>config.yaml&lt;/code>配置文件和&lt;code>content&lt;/code>文件夹复制到博客根目录&lt;/li>
+&lt;li>根据需要修改&lt;code>config.yaml&lt;/code>配置文件&lt;/li>
+&lt;/ol>
+&lt;h3 id="提交更改到git-仓库">提交更改到Git 仓库：&lt;/h3>
+&lt;ol>
+&lt;li>添加更改到暂存区：
+&lt;code>git add .&lt;/code>&lt;/li>
+&lt;li>提交更改：
+&lt;code>git commit -m &amp;quot;Add hugo-theme-stack as a submodule&amp;quot;&lt;/code>&lt;/li>
+&lt;/ol>
+&lt;h2 id="将博客部署到github上">将博客部署到github上&lt;/h2>
+&lt;h3 id="推送到远程仓库">推送到远程仓库&lt;/h3>
+&lt;p>在 GitHub 上创建用于一个你的 Hugo 博客源文件的仓库，将本地更改推送到远程仓库：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">git remote add origin &amp;lt;your-remote-repository-url&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git push -u origin master
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>在 GitHub 上创建另一个新仓库，命名为 &lt;code>username.github.io&lt;/code>，用于存放 Hugo 生成的静态站点。（将 &lt;code>username&lt;/code> 替换为你的 GitHub 用户名）。稍后我们将在Hugo 源代码仓库中配置GitHub Actions ，以自动构建 Hugo 网站并将静态文件推送到这里。&lt;/p>
+&lt;h3 id="配置-github-actions">配置 GitHub Actions&lt;/h3>
+&lt;p>在 Hugo 源代码仓库中配置 GitHub Actions，以自动构建 Hugo 网站并将静态文件推送到你的 &lt;code>username.github.io&lt;/code> 仓库。&lt;/p>
+&lt;h4 id="创建github-actions工作流文件">创建GitHub Actions工作流文件&lt;/h4>
+&lt;ol>
+&lt;li>在源代码仓库中创建 &lt;code>.github/workflows&lt;/code> 目录。&lt;/li>
+&lt;li>在该目录中创建一个 YAML 文件，比如命名为 &lt;code>deploy.yml&lt;/code>。&lt;/li>
+&lt;li>在这个文件中，添加以下内容：&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">name: Deploy Hugo
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">on:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> push:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> branches:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - master # 确保分支与你使用的相匹配
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">jobs:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> build-deploy:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> runs-on: ubuntu-latest
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> steps:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - name: Checkout
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> uses: actions/checkout@v2
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> with:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> submodules: &amp;#39;recursive&amp;#39; # 指示同步子模块
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - name: Setup Hugo
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> uses: peaceiris/actions-hugo@v2
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> with:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> hugo-version: &amp;#39;latest&amp;#39;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> extended: true
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - name: Build
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> run: hugo --minify
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - name: Deploy to GitHub Pages
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> uses: peaceiris/actions-gh-pages@v3
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> with:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> deploy_key: ${{ secrets.DEPLOY_KEY }}
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> publish_dir: ./public
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> external_repository: username/username.github.io # 替换为你的静态文件仓库
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> keep_files: false # 每次部署时，GitHub Pages 仓库中旧的文件都会被清除，并替换为新生成的文件。这通常是部署静态网站时的期望行为。
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>在 &lt;code>Deploy to GitHub Pages&lt;/code> 步骤中，选择了使用 &lt;code>deploy_key&lt;/code>。接下来将在你的 GitHub 仓库中配置相应的部署密钥（&lt;code>DEPLOY_KEY&lt;/code>）。这个密钥需要被添加到你的 源代码仓库的 Secrets 中，并且对应的公钥需要被添加到你的 &lt;code>user.github.io&lt;/code> 静态文件仓库中。&lt;/p>
+&lt;h4 id="生成新的ssh-密钥">生成新的SSH 密钥&lt;/h4>
+&lt;p>使用 &lt;code>ssh-keygen&lt;/code> 命令生成新的密钥对。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">ssh-keygen -t rsa -b 4096 -C &amp;#34;your_email@example.com&amp;#34;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>将 &lt;code>&amp;quot;your_email@example.com&amp;quot;&lt;/code> 替换为你的电子邮件地址。当系统提示你输入文件名时，输入一个独特的名称，比如 &lt;code>hugo_deploy_key&lt;/code>，以避免覆盖任何现有的密钥。根据提示选择保存密钥的位置和是否设置密码。由于这个密钥将由自动化系统使用，所以通常不设置密码。&lt;/p>
+&lt;h4 id="在-github-中设置密钥">在 GitHub 中设置密钥&lt;/h4>
+&lt;h5 id="设置部署密钥deploy-key">设置部署密钥（Deploy Key）&lt;/h5>
+&lt;ol>
+&lt;li>&lt;strong>找到你刚生成的公钥文件&lt;/strong>：默认情况下，它将保存在 &lt;code>~/.ssh/&lt;/code> 目录下，文件名类似于 &lt;code>hugo_deploy_key.pub&lt;/code>。&lt;/li>
+&lt;li>&lt;strong>打开公钥文件并复制内容&lt;/strong>。&lt;/li>
+&lt;li>&lt;strong>在你的 GitHub Pages 仓库（&lt;code>username.github.io&lt;/code>）中添加公钥作为部署密钥&lt;/strong>：
+&lt;ul>
+&lt;li>转到 GitHub 仓库，点击 &amp;ldquo;Settings&amp;rdquo;。&lt;/li>
+&lt;li>在侧边栏中选择 &amp;ldquo;Deploy keys&amp;rdquo;。&lt;/li>
+&lt;li>点击 &amp;ldquo;Add deploy key&amp;rdquo;，粘贴你的公钥内容。&lt;/li>
+&lt;li>给它一个识别的标题，比如 &amp;ldquo;Hugo Deploy Key&amp;rdquo;。&lt;/li>
+&lt;li>确保选中 &amp;ldquo;Allow write access&amp;rdquo;。&lt;/li>
+&lt;li>点击 &amp;ldquo;Add key&amp;rdquo;。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;h5 id="设置-secret">&lt;strong>设置 Secret&lt;/strong>&lt;/h5>
+&lt;ol>
+&lt;li>&lt;strong>找到你的私钥文件&lt;/strong>：这是在生成密钥对时没有 &lt;code>.pub&lt;/code> 扩展名的文件，比如 &lt;code>hugo_deploy_key&lt;/code>。&lt;/li>
+&lt;li>&lt;strong>打开私钥文件并复制内容&lt;/strong>。&lt;/li>
+&lt;li>&lt;strong>在你的 Hugo 源代码仓库中添加私钥作为 Secret&lt;/strong>：
+&lt;ul>
+&lt;li>转到 GitHub 仓库，点击 &amp;ldquo;Settings&amp;rdquo;。&lt;/li>
+&lt;li>在侧边栏中选择 &amp;ldquo;Secrets and variables&amp;rdquo;，点击&amp;quot;Actions&amp;quot;。&lt;/li>
+&lt;li>点击 &amp;ldquo;New repository secret&amp;rdquo;。&lt;/li>
+&lt;li>命名为 &lt;code>DEPLOY_KEY&lt;/code>，粘贴你的私钥内容。&lt;/li>
+&lt;li>点击 &amp;ldquo;Add secret&amp;rdquo;。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;h3 id="开启github-page">开启Github Page&lt;/h3>
+&lt;p>&lt;code>Github Action&lt;/code>配置完成后,我们需要开启&lt;code>GitHub page&lt;/code>,进入你的GitHub Pages 仓库（&lt;code>username.github.io&lt;/code>）,点击 &amp;ldquo;Settings&amp;rdquo;,找到&lt;code>pages&lt;/code>项,完成相关设置。&lt;br>
+将 Hugo 博客根目录推送到源代码仓库，就可以在&lt;code>https://username.github.io&lt;/code>中访问你的博客啦。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">git add .
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git commit -m &amp;#34;博客搭建完成&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git push -u origin master
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>到这里我们就成功完成了整个Hugo博客的搭建，并实现了通过GitHub Actions自动构建发布博客。&lt;/p></description></item><item><title>mklink</title><link>https://weightless-sea.github.io/p/mklink/</link><pubDate>Fri, 01 Dec 2023 14:23:34 +0800</pubDate><guid>https://weightless-sea.github.io/p/mklink/</guid><description>&lt;p>示例：
 &lt;code>mklink /D D:\weightless-sea\04-个人 C:\Users\why\hujan-blog\content\post&lt;/code>&lt;/p>
-&lt;p>&lt;code>mklink /D D:\weightless-sea\04-个人 E:\test&lt;/code>&lt;/p></description></item><item><title>测试</title><link>https://weightless-sea.github.io/p/%E6%B5%8B%E8%AF%95/</link><pubDate>Wed, 09 Sep 2020 00:00:00 +0000</pubDate><guid>https://weightless-sea.github.io/p/%E6%B5%8B%E8%AF%95/</guid><description>&lt;p>经历了各种磕磕碰碰后，终于将博客搭建完成
-&lt;br>
-接下来就写写此站从新建文件夹到诞生的主要过程吧&lt;/p></description></item></channel></rss>
+&lt;p>&lt;code>mklink /D D:\weightless-sea\04-个人 E:\test&lt;/code>&lt;/p></description></item><item><title>测试</title><link>https://weightless-sea.github.io/p/%E6%B5%8B%E8%AF%95/</link><pubDate>Thu, 30 Nov 2023 00:00:00 +0000</pubDate><guid>https://weightless-sea.github.io/p/%E6%B5%8B%E8%AF%95/</guid><description>&lt;p>文本文本&lt;/p></description></item></channel></rss>
