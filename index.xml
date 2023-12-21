@@ -255,8 +255,7 @@ ps：清雅也太美了吧&lt;/p>
 &lt;/div>
 &lt;/div>&lt;p>到这里我们就成功完成了整个Hugo博客的搭建，并实现了通过GitHub Actions自动构建发布博客。&lt;/p></description></item><item><title>mklink</title><link>https://weightless-sea.github.io/p/mklink/</link><pubDate>Fri, 01 Dec 2023 14:23:34 +0800</pubDate><guid>https://weightless-sea.github.io/p/mklink/</guid><description>&lt;p>示例：
 &lt;code>mklink /D D:\weightless-sea\04-个人 C:\Users\why\hujan-blog\content\post&lt;/code>&lt;/p>
-&lt;p>&lt;code>mklink /D D:\weightless-sea\04-个人 E:\test&lt;/code>&lt;/p></description></item><item><title>测试</title><link>https://weightless-sea.github.io/p/%E6%B5%8B%E8%AF%95/</link><pubDate>Thu, 30 Nov 2023 00:00:00 +0000</pubDate><guid>https://weightless-sea.github.io/p/%E6%B5%8B%E8%AF%95/</guid><description>&lt;p>文本文本
-（当然我的记忆力并不好，咱就是说即使喜欢也可能不会留下什么印象就是了&amp;hellip;）&lt;/p></description></item><item><title>关于</title><link>https://weightless-sea.github.io/%E5%85%B3%E4%BA%8E/</link><pubDate>Wed, 29 Nov 2023 00:00:00 +0000</pubDate><guid>https://weightless-sea.github.io/%E5%85%B3%E4%BA%8E/</guid><description>&lt;h2 id="介绍">介绍&lt;/h2>
+&lt;p>&lt;code>mklink /D D:\weightless-sea\04-个人 E:\test&lt;/code>&lt;/p></description></item><item><title>测试</title><link>https://weightless-sea.github.io/p/%E6%B5%8B%E8%AF%95/</link><pubDate>Thu, 30 Nov 2023 00:00:00 +0000</pubDate><guid>https://weightless-sea.github.io/p/%E6%B5%8B%E8%AF%95/</guid><description>&lt;p>文本文本&lt;/p></description></item><item><title>关于</title><link>https://weightless-sea.github.io/%E5%85%B3%E4%BA%8E/</link><pubDate>Wed, 29 Nov 2023 00:00:00 +0000</pubDate><guid>https://weightless-sea.github.io/%E5%85%B3%E4%BA%8E/</guid><description>&lt;h2 id="介绍">介绍&lt;/h2>
 &lt;p>随便写写&lt;/p>
 &lt;h2 id="博客大事记">博客大事记&lt;/h2>
 &lt;h3 id="2023年11月">2023年11月&lt;/h3>
